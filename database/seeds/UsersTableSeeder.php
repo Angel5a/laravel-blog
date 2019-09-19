@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        App\User::create([
             'name' => 'Admin',
             'email' => 'root@localhost.localdomain',
             'email_verified_at' => now(),
