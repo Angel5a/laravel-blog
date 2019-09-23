@@ -4,7 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 content">
-            @yield('content')
+            <main class="py-4">
+                @yield('content')
+            </main>
         </div>
 
         <div class="col-lg-4 sidebar">

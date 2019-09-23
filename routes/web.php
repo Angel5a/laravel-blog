@@ -21,9 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/articles', 'ArticleController');
 
-// TODO: this must be implemented
-Route::get('/profile/{user}', function (App\User $user) {
-    return $user->name;
-})->name('users.profile');
+Route::get('/users/{user}/articles', 'ArticleController@byUser')->name('users.articles');
 
-Route::get('/profile/{user}/articles', 'ArticleController@byUser')->name('users.articles');
+Route::resource('/users', 'UserController');

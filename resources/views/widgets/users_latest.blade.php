@@ -7,8 +7,8 @@
         <ul>
             @foreach ($users as $user)
                 <li>
-                    <a href="{{ route('users.profile', $user->id) }}">{{ $user->name }}</a>
-                    {{ $user->created_at->format('j/n/y') }}
+                    <a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a>
+                    {{ $user->created_at->format('d/m/Y') }}
                 </li>
             @endforeach
         </ul>

@@ -19,13 +19,13 @@
 
 <div class="form-group">
     {!! Form::label('body', __('Body:')) !!}
-    {!! Form::textarea('body', null, ['class' => 'form-control', 'aria-describedby' => 'titleHelpBlock', 'required' =>'']) !!}
+    {!! Form::textarea('body', null, ['class' => 'form-control', 'aria-describedby' => 'bodyHelpBlock', 'required' =>'']) !!}
     @error('body')
         <div class="alert alert-danger" role="alert">
             {{ $message }}
         </div>
     @enderror
-    <small id="textHelpBlock" class="form-text text-muted">
+    <small id="bodyHelpBlock" class="form-text text-muted">
         {{ __('Fill the article body here.') }}
     </small>
 </div>

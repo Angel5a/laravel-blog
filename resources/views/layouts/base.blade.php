@@ -24,11 +24,15 @@
 </head>
 <body>
     <div id="app">
-        @include('includes.nav')
+        <header>
+            @include('includes.nav')
+        </header>
+        
+        @yield('page')
 
-        <main class="py-4">
-            @yield('page')
-        </main>
+        <footer>
+            @include('includes.footer')
+        </footer>
     </div>
 </body>
 </html>

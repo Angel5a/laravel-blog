@@ -1,11 +1,13 @@
 @extends('layouts.base')
 
 @section('page')
-<div class="container">
-    <div class="row">
-        <div class="col content">
-            @yield('content')
+<main class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col content">
+                @yield('content')
+            </div>
         </div>
     </div>
-</div>
+</main>
 @endsection

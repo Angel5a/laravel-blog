@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Article;
+//use App\Article;
 
 class PostArticleRequest extends FormRequest
 {
@@ -14,7 +14,7 @@ class PostArticleRequest extends FormRequest
      */
     public function authorize()
     {
-        //return $this->user()->can('create', Article::class);
+        // Note: ArticlePolicy used instead.
         return true;
     }
 

@@ -12,8 +12,12 @@ class ArticlePolicy
 
     public function before(User $user, $ability)
     {
-        // TODO: place superuser check (can do anything with this model) here and return true
-        // TODO: banned users can also be processed here and return false
+        if ($user->isAdmin()) {
+            return true;
+        }
+        if ($user->isBanned()) {
+            return false;
+        }
     }
 
     /**
@@ -22,9 +26,8 @@ class ArticlePolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(?User $user)
     {
-        // TODO: banned users
         return true;
     }
 
@@ -35,10 +38,9 @@ class ArticlePolicy
      * @param  \App\Article  $article
      * @return mixed
      */
-    public function view(User $user, Article $article)
+    public function view(?User $user, Article $article)
     {
-        // TODO: admin see all, owner and moderators can see unpublished, other only published
-        return true;
+        return ($user && $user->isModerator()) || $article->isPublished();
     }
 
     /**
@@ -49,7 +51,6 @@ class ArticlePolicy
      */
     public function create(User $user)
     {
-        // TODO: banned users
         return true;
     }
 
@@ -62,8 +63,7 @@ class ArticlePolicy
      */
     public function update(User $user, Article $article)
     {
-        // TODO: admin can edit any article, moderators their blogs
-        return $user->id == $article->user_id;
+        return $user->isModerator() || $user->id == $article->user_id;
     }
 
     /**
@@ -75,8 +75,7 @@ class ArticlePolicy
      */
     public function delete(User $user, Article $article)
     {
-        // TODO: admin can delete any article, moderators their blogs
-        return $user->id == $article->user_id;
+        return $user->isModerator() || $user->id == $article->user_id;
     }
 
     /**
@@ -88,8 +87,7 @@ class ArticlePolicy
      */
     public function restore(User $user, Article $article)
     {
-        // TODO: admin can restore any article, moderators their blogs
-        return $user->id == $article->user_id;
+        return $user->isModerator() || $user->id == $article->user_id;
     }
 
     /**
@@ -101,7 +99,6 @@ class ArticlePolicy
      */
     public function forceDelete(User $user, Article $article)
     {
-        // TODO: admin can delete any article, moderators their blogs
         return $user->id == $article->user_id;
     }
 }

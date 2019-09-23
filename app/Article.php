@@ -20,30 +20,63 @@ class Article extends Model
         'title', 'body',
     ];
 
+    /**
+     * Get the user that owns this article.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo('App\User');
     }
 
+    /**
+     * Get preview text (can be used in article preview, like on index page).
+     * 
+     * return string
+     */
     public function getPreviewTextAttribute()
     {
         return Str::limit($this->body, $limit = 300, $end = '...');
     }
 
+    /**
+     * Get published date.
+     * 
+     * @return Carbon
+     */
     public function getPublishedAtAttribute()
     {
         // TODO: remove after adding published_at field in db
         return $this->created_at;
     }
 
-    public function scopeByUserId($query, $id)
+    /**
+     * @param Builder $query
+     * @param int $id
+     */
+    public function scopeByUserId(Builder $query, $id)
     {
-        return $query->where('user_id', $id);
+        $query->where('user_id', $id);
     }
 
+    /**
+     * @param Builder $query
+     */
     public function scopePublished(Builder $query)
     {
         // TODO: add published and published_at fields in db
         // Currently do nothing. All post published immediatlely after creation.
+    }
+
+    /**
+     * Determine whether the article is published.
+     *
+     * @return bool
+     */
+    public function isPublished()
+    {
+        // TODO: this
+        return true;
     }
 }

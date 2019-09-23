@@ -21,6 +21,12 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::latest()->published()->with('user')->paginate(10);
+        /*if(\Auth::user()->isAdmin()) {
+            $articles = Article::withTrashed()->latest();
+        } else {
+            $articles = Article::latest()->published();
+        }
+        $articles = $articles->with('user')->paginate(10);*/
         return view('articles.index')->with('articles', $articles);
         //return view('articles.index', compact('articles', 'users'));
     }
@@ -109,6 +115,13 @@ class ArticleController extends Controller
     public function byUser($user_id)
     {
         $articles = Article::latest()->byUserId($user_id)->with('user')->paginate(10);
+        /*$curUser = \Auth::user();
+        if($curUser->isAdmin() || $curUser->id == $user_id) {
+            $articles = Article::withTrashed()->latest();
+        } else {
+            $articles = Article::latest()->published();
+        }
+        $articles = $articles->byUserId($user_id)->with('user')->paginate(10);*/
         return view('articles.index')->with('articles', $articles);
     }
     /*public function byUser(\App\User $user)
