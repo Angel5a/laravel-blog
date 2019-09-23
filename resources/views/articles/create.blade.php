@@ -1,17 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.articles')
+
+@section('title', __('Create new Article'))
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8">
+<h2>{{ __('Create new Article') }}</h2>
 
-            <h2>{{ _('Create new Article') }}</h2>
-
-            {!! Form::open(['route' => 'articles.store', 'role'=>'form']) !!}
-            @include ('articles.form', ['submitButtonText' => __('Add Article')])
-            {!! Form::close() !!}
-
-        </div>
-    </div>
-</div>
+{!! Form::open(['route' => 'articles.store', 'role'=>'form']) !!}
+@include ('articles.form', ['submitButtonText' => __('Add Article')])
+{!! Form::close() !!}
 @endsection

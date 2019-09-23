@@ -3,13 +3,8 @@
 @section('page')
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 content">
+        <div class="col content">
             @yield('content')
-        </div>
-
-        <div class="col-lg-4 sidebar">
-            @stack('widgets')
-            @yield('sidebar', '')
         </div>
     </div>
 </div>

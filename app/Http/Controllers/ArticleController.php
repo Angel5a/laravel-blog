@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::latest()->with('user')->paginate(10);
+        $articles = Article::latest()->published()->with('user')->paginate(10);
         return view('articles.index')->with('articles', $articles);
         //return view('articles.index', compact('articles', 'users'));
     }
@@ -43,17 +43,12 @@ class ArticleController extends Controller
      */
     public function store(PostArticleRequest $request)
     {
-        //$article = Article::create($validatedData);   // Doesn't suets for now, have ti set user_id
-        $article = new Article($request->all());
-        //$article->user_id = Auth::user()->id;
-        $article->user_id = auth()->user()->id;
-        $article->save();
-
+        $article = \Auth::user()->articles()->create($request->all());
         return redirect()->route('articles.show', $article->id);
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified article.
      *
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
@@ -64,7 +59,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified article.
      *
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
@@ -75,7 +70,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified article in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Article  $article
@@ -88,7 +83,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified article from storage.
      *
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
@@ -106,7 +101,7 @@ class ArticleController extends Controller
     }*/
 
     /**
-     * Display a listing of the resource for specified user.
+     * Display a listing of the articles for specified user.
      * 
      * @param  int  $user_id  Authors id.
      * @return \Illuminate\Http\Response
