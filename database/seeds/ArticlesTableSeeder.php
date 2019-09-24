@@ -17,7 +17,7 @@ class ArticlesTableSeeder extends Seeder
         App\User::withTrashed()->get()->each(function ($user) use ($faker) {
             //$user->articles()->save(factory(App\Article::class)->make());
             $user->articles()->createMany(
-                factory(App\Article::class, $faker->randomDigit)->make()->toArray()
+                factory(App\Article::class, $faker->numberBetween(0, 15))->make()->toArray()
             );
         });
     }

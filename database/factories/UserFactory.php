@@ -26,6 +26,5 @@ $factory->define(User::class, function (Faker $faker) {
         'avatar' => $faker->imageUrl(64, 64, 'people'),
         'role' => 1,
         'info' => $faker->text($maxNbChars=1024),
-
     ];
 });

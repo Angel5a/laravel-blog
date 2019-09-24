@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::latest()->published()->with('user')->paginate(10);
+        $articles = Article::with('user')->published()->latest()->paginate(10);
         /*if(\Auth::user()->isAdmin()) {
             $articles = Article::withTrashed()->latest();
         } else {
@@ -114,14 +114,15 @@ class ArticleController extends Controller
      */
     public function byUser($user_id)
     {
-        $articles = Article::latest()->byUserId($user_id)->with('user')->paginate(10);
+        $articles = Article::with('user')->byUserId($user_id)->latest()->paginate(10);
         /*$curUser = \Auth::user();
+        $articles = Article::with('user');
         if($curUser->isAdmin() || $curUser->id == $user_id) {
-            $articles = Article::withTrashed()->latest();
+            $articles = $articles->withTrashed();
         } else {
-            $articles = Article::latest()->published();
+            $articles = $articles->published();
         }
-        $articles = $articles->byUserId($user_id)->with('user')->paginate(10);*/
+        $articles = $articles->byUserId($user_id)->latest()->paginate(10);*/
         return view('articles.index')->with('articles', $articles);
     }
     /*public function byUser(\App\User $user)

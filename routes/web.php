@@ -19,8 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/articles/{article}/comments', 'CommentController@byArticle')->name('articles.comments');
 Route::resource('/articles', 'ArticleController');
 
 Route::get('/users/{user}/articles', 'ArticleController@byUser')->name('users.articles');
-
+Route::get('/users/{user}/comments', 'CommentController@byUser')->name('users.comments');
 Route::resource('/users', 'UserController');
+
+Route::resource('/comments', 'CommentController');

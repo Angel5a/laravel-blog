@@ -6,8 +6,14 @@
     <article>
         <h2>{{ $user->name }}</h2>
 
-        <a href="{{ route('users.articles', $user->id) }}" class="btn btn-default btn-sm" role="button">
+        <a href="#" class="btn btn-default btn-disabled" role="button">
+            {{ __('User profile') }}
+        </a>
+        <a href="{{ route('users.articles', $user->id) }}" class="btn btn-default" role="button">
             {{ __('View user articles') }}
+        </a>
+        <a href="{{ route('users.comments', $user->id) }}" class="btn btn-default" role="button">
+            {{ __('View user comments') }}
         </a>
 
 

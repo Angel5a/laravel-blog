@@ -25,7 +25,17 @@ class ArticlesWidgetServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('widgets.articles_latest', function ($view) {
-            $view->with('articles', Article::published()->latest()->with('user')->limit(10)->get());
+            $view->with('articles', Article::with('user')->published()->latest()->limit(10)->get());
+        });
+        view()->composer('widgets.articles_comments', function ($view) {
+            $view->with(
+                'articles',
+                Article::withCount('comments')
+                    ->where('comments_count', '>', 5)
+                    ->orderBy('comments_count', 'desc')
+                    ->limit(10)
+                    ->get()
+            );
         });
     }
 }

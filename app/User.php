@@ -64,6 +64,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Get comments by this user.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    /**
      * Get user's role.
      * 
      * return string

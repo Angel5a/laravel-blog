@@ -3,20 +3,30 @@
 @section('title', $article->title)
 
 @section('content')
-<h2>{{ $article->title }}</h2>
+    <h2>{{ $article->title }}</h2>
 
-<article>
-    <p class="lead">
-        <i class="fa fa-calendar"></i> {{ __('Posted on') }} {{ $article->published_at->format('d/m/Y') }}
-        <i class="fa fa-user"></i> {{ __('by') }} <a href="{{ route('users.show', $article->user->id) }}">{{ $article->user->name }}</a>
-    </p>
-    <p><i class="fa fa-tags"></i> {{ __('Tags:')  }} <a href=""><span class="badge badge-info">Post</span></a></p>
+    <article>
+        <p class="lead">
+            <i class="fa fa-calendar"></i> {{ __('Posted on') }} {{ $article->published_at->format('d/m/Y') }}
+            <i class="fa fa-user"></i> {{ __('by') }} <a href="{{ route('users.show', $article->user->id) }}">{{ $article->user->name }}</a>
+            <small>
+                @if ($article->updated_at && $article->updated_at != $article->created_at)
+                    ({{ __('last update') }} {{ $article->updated_at->format('d/m/Y') }})
+                @endif
+            </small>
+        </p>
+        <p><i class="fa fa-tags"></i> {{ __('Tags:')  }} <a href=""><span class="badge badge-info">Post</span></a></p>
 
-    @can ('view', $article)
-        <img src="http://placehold.it/600x200" class="img-responsive">
-        <p>{{ $article->body }}</p>
-    @endcan
+        @can ('view', $article)
+            <img src="http://placehold.it/600x200" class="img-responsive">
+            <p>{{ $article->body }}</p>
+        @endcan
 
-    @include('articles.buttons', ['buttons' => ['update', 'delete']])
-</article>
+        @include('articles.buttons', ['buttons' => ['update', 'delete']])
+    </article>
+
+    @include('comments.list', ['comments' => $article->comments])
+
+    @include('comments.add_form', ['article_id' => $article->id])
+
 @endsection

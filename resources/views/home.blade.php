@@ -1,4 +1,4 @@
-@extends('layouts.message')
+@extends('layouts.app')
 
 @section('title', 'Home')
 
@@ -18,10 +18,19 @@
             @include('widgets.articles_latest')
         </div>
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
-            @include('widgets.users_top')
+            @include('widgets.users_latest')
         </div>
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
-            @include('widgets.users_latest')
+            @include('widgets.comments_latest')
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+            @include('widgets.articles_comments')
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+            @include('widgets.users_articles')
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs">
+            @include('widgets.users_comments')
         </div>
     </div>
 </div>

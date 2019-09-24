@@ -176,6 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ArticlesWidgetServiceProvider::class,
+        App\Providers\CommentsWidgetServiceProvider::class,
         App\Providers\UsersWidgetServiceProvider::class,
 
     ],

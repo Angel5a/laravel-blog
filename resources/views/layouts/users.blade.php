@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
 @section('title', 'Users')
 
 @push('widgets')
-    @include('widgets.articles_latest')
-    @include('widgets.users_top')
     @include('widgets.users_latest')
+    @include('widgets.users_articles')
+    @include('widgets.users_comments')
 @endpush

@@ -31,6 +31,16 @@ class Article extends Model
     }
 
     /**
+     * Get comments for this article.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    /**
      * Get preview text (can be used in article preview, like on index page).
      * 
      * return string
