@@ -1,16 +1,16 @@
-@component('widgets.with_title', ['title' => __('Most commended Articles')])
+@component('widgets.with_title', ['title' => __('widgets.articles_comments')])
     @if ($articles)
         <ul>
             @foreach ($articles as $article)
                 <li>
                     <a href="{{ route('articles.show', $article->id) }}">{{ $article->title }}</a>
-                    {{ trans_choice('{0} no comments|[1] :count comment|[2,*] :count comments', $article->comments_count) }}
+                    {{ trans_choice('widgets.comments_count', $article->comments_count) }}
                 </li>
             @endforeach
         </ul>
     @else
         <div class="no-data">
-            <p>{{ __('No articles') }}</p>
+            <p>{{ __('widgets.no_articles') }}</p>
         </div>
     @endif
 @endcomponent

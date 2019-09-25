@@ -1,12 +1,11 @@
 @if ($errors->any())
     <div class="alert alert-danger" role="alert">
-        {{ __('Error occured while processing request.') }}
+        {{ __('comments.error') }}
     </div>
 @endif
 
 {!! Form::hidden('article_id', $article_id) !!}
 @error('article_id')
-    <!-- article_id field should be defined outside -->
     <div class="alert alert-danger" role="alert">
         {{ $message }}
     </div>
@@ -20,7 +19,7 @@
         </div>
     @enderror
     <small id="bodyHelpBlock" class="form-text text-muted">
-        {{ __('Write your comment here.') }}
+        {{ __('comments.body_help') }}
     </small>
 </div>
 

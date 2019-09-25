@@ -9,6 +9,13 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
+    /**
+     * Determine whether the user have specified ability before the call
+     * to specified method.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
     public function before(User $user, $ability)
     {
         if ($user->isAdmin()) {
@@ -31,7 +38,7 @@ class UserPolicy
     }
 
     /**
-     * Determine whether the user can view the model.
+     * Determine whether the user can view the model (user).
      *
      * @param  \App\User  $user
      * @param  \App\User  $model
@@ -43,7 +50,7 @@ class UserPolicy
     }
 
     /**
-     * Determine whether the user can create models.
+     * Determine whether the user can create models (users).
      *
      * @param  \App\User  $user
      * @return mixed
@@ -54,7 +61,7 @@ class UserPolicy
     }
 
     /**
-     * Determine whether the user can update the model.
+     * Determine whether the user can update the model (user).
      *
      * @param  \App\User  $user
      * @param  \App\User  $model
@@ -66,7 +73,7 @@ class UserPolicy
     }
 
     /**
-     * Determine whether the user can delete the model.
+     * Determine whether the user can delete the model (user).
      *
      * @param  \App\User  $user
      * @param  \App\User  $model
@@ -78,7 +85,7 @@ class UserPolicy
     }
 
     /**
-     * Determine whether the user can restore the model.
+     * Determine whether the user can restore the model (user).
      *
      * @param  \App\User  $user
      * @param  \App\User  $model
@@ -90,7 +97,7 @@ class UserPolicy
     }
 
     /**
-     * Determine whether the user can permanently delete the model.
+     * Determine whether the user can permanently delete the model (user).
      *
      * @param  \App\User  $user
      * @param  \App\User  $model

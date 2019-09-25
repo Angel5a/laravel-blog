@@ -31,7 +31,7 @@ class UsersWidgetServiceProvider extends ServiceProvider
             $view->with(
                 'users',
                 User::withCount('articles')
-                    ->where('articles_count', '>', 5)
+                    // ->where('articles_count', '>', 5)
                     ->orderBy('articles_count', 'desc')
                     ->limit(10)
                     ->get()
@@ -41,7 +41,7 @@ class UsersWidgetServiceProvider extends ServiceProvider
             $view->with(
                 'users',
                 User::withCount('comments')
-                    ->where('comments_count', '>', 10)
+                    // ->where('comments_count', '>', 10)
                     ->orderBy('comments_count', 'desc')
                     ->limit(10)
                     ->get()

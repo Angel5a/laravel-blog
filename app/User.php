@@ -47,14 +47,14 @@ class User extends Authenticatable
     private $roleNames = [
         0 => 'banned',
         1 => 'user',
-        //2 => 'prime',
+        // 2 => 'prime',
         3 => 'moderator',
-        //4 => 'super',
+        // 4 => 'super',
         5 => 'admin',
     ];
 
     /**
-     * Get articles for this user.
+     * Get articles by this user.
      * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -80,10 +80,8 @@ class User extends Authenticatable
      */
     public function getRoleAttribute()
     {
-        if (!empty($this->roleNames[$this->attributes['role']])) {
-            return $this->roleNames[$this->attributes['role']];
-        }
-        return 'role'.$this->attributes['role'];
+        $role = $this->attributes['role'];
+        return empty($this->roleNames[$role]) ? 'role_'.$role : $this->roleNames[$role];
     }
 
     /**
@@ -128,7 +126,6 @@ class User extends Authenticatable
      */
     public function isBanned()
     {
-        // TODO: Need a way to ban users.
         return $this->attributes['role'] < 1;
     }
 }

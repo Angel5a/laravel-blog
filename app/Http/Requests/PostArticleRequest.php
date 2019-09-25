@@ -9,12 +9,12 @@ class PostArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     * Always returns true. ArticlePolicy used instead.
      *
      * @return bool
      */
     public function authorize()
     {
-        // Note: ArticlePolicy used instead.
         return true;
     }
 

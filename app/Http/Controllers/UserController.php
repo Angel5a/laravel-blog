@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->authorizeResource(User::class, 'user');
@@ -35,9 +40,9 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created user in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostUserRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostUserRequest $request)
@@ -47,7 +52,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified user.
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -58,7 +63,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified user.
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -69,9 +74,9 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostUserRequest  $request
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
@@ -82,7 +87,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified user from storage.
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response

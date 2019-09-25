@@ -1,6 +1,6 @@
 @extends('layouts.page')
 
-@section('title', 'Comments')
+@section('title', __('Comments'))
 
 @push('widgets')
     @include('widgets.comments_latest')

@@ -1,0 +1,51 @@
+{
+    "E-Mail Address": "Адрес электронной почты",
+    "Forgot Your Password?": "Забыли свой пароль?",
+    "Home": "Заглавная",
+    "Login": "Войти",
+    "Logout": "Выйти",
+    "Name": "Имя",
+    "Password": "Пароль",
+    "Confirm Password": "Подтверждение пароля",
+    "Register": "Регистрация",
+    "Remember Me": "Запомнить меня",
+    "Reset Password": "Сброс пароля",
+    
+    "Laravel Blog": "Блог на Laravel",
+    "Page": "Страница",
+    "Language": "Язык",
+    "My profile": "Мой профиль",
+    "My articles": "Мои статьи",
+    "Create new article": "Написать статью",
+
+    "Articles": "Статьи",
+    "Comments": "Комментарии",
+    "Users": "Пользователи",
+    "No articles": "Нет статей",
+    "No comments": "Нет комментариев",
+    "No users": "Нет пользователей",
+
+    "Read": "Читать",
+    "Edit": "Редактировать",
+    "Delete": "Удалить",
+    "New": "Создать",
+
+    "Banned user": "Заблокированный пользователь",
+    "Common user": "Обычный пользователь",
+    "Moderator": "Модератор",
+    "Admin": "Администратор",
+
+    "Simple blog based on": "Простой блог основанный на",
+    "with a": "с примерением",
+    "created by": "создан",
+    "Back to top": "Наверх",
+
+    "Verify Your Email Address": "Подтверждение адреса электронной почты",
+    "Send Password Reset Link": "Отправить ссылку на сброс пароля",
+    "A fresh verification link has been sent to your email address.": "На ваш адрес электронной почты была отправлена новая ссылка для подтверждения.",
+    "Before proceeding, please check your email for a verification link.": "Прежде чем продолжить, проверьте свою электронную почту на наличие ссылки для подтверждения.",
+    "If you did not receive the email": "Если вы не получили письмо",
+    "click here to request another": "нажмите здесь для повторного запроса",
+
+    "Error occured.": "Произошла ошибка."
+}

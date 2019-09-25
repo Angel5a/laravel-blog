@@ -75,7 +75,7 @@ class Article extends Model
      */
     public function scopePublished(Builder $query)
     {
-        // TODO: add published and published_at fields in db
+        // TODO: add published and/or published_at fields in db
         // Currently do nothing. All post published immediatlely after creation.
     }
 

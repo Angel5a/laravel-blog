@@ -1,11 +1,11 @@
 @extends('layouts.users')
 
-@section('title', __('Edit User'))
+@section('title', __('users.title_edit'))
 
 @section('content')
-<h2>{{ __('Edit User:') }} {{ $user->title }}</h2>
+    <h2>{{ __('users.header_edit') }} {{ $user->title }}</h2>
 
-{!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PATCH', 'role'=>'form']) !!}
-    @include ('users.form', ['submitButtonText' => __('Update User')])
-{!! Form::close() !!}
+    {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PATCH', 'role'=>'form']) !!}
+        @include ('users.form', ['submitButtonText' => __('users.button_edit')])
+    {!! Form::close() !!}
 @endsection

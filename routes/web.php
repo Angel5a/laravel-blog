@@ -27,3 +27,6 @@ Route::get('/users/{user}/comments', 'CommentController@byUser')->name('users.co
 Route::resource('/users', 'UserController');
 
 Route::resource('/comments', 'CommentController');
+
+Route::get('/languages/{lang}/home', 'LanguageController@home')->name('language.home');
+Route::get('/languages/{lang}/back', 'LanguageController@back')->name('language.back');

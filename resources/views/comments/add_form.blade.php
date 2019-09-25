@@ -1,9 +1,9 @@
 <!-- Comment form on article page -->
 
 <h4>
-    {{ __('Comment this article') }}
+    {{ __('comments.header_add_form') }}
 </h4>
 
 {!! Form::open(['route' => 'comments.store', 'role'=>'form']) !!}
-    @include ('comments.form', ['article_id' => $article_id, 'submitButtonText' => __('Add Comment')])
+    @include('comments.form', ['article_id' => $article_id, 'submitButtonText' => __('comments.button_add_form')])
 {!! Form::close() !!}

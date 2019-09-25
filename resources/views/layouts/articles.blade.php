@@ -1,6 +1,6 @@
 @extends('layouts.page')
 
-@section('title', 'Articles')
+@section('title', __('Articles'))
 
 @push('widgets')
     @include('widgets.articles_latest')

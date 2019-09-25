@@ -1,11 +1,11 @@
 @if ($errors->any())
     <div class="alert alert-danger" role="alert">
-        {{ __('Error occured while processing request.') }}
+        {{ __('users.error') }}
     </div>
 @endif
 
 <div class="form-group">
-    {!! Form::label('name', __('Name:')) !!}
+    {!! Form::label('name', __('users.name_label')) !!}
     {!! Form::text('name', null, ['class' => 'form-control', 'aria-describedby' => 'titleHelpBlock', 'required' =>'']) !!}
     @error('name')
         <div class="alert alert-danger" role="alert">
@@ -13,31 +13,31 @@
         </div>
     @enderror
     <small id="nameHelpBlock" class="form-text text-muted">
-       {{ _('Name is required and should be less than 256 characters long.') }}
+       {{ __('users.name_help') }}
     </small>
 </div>
 
 
 <div class="form-group">
-    {!! Form::label('info', __('Info:')) !!}
+    {!! Form::label('info', __('users.info_label')) !!}
     {!! Form::textarea('info', null, ['class' => 'form-control', 'aria-describedby' => 'infoHelpBlock']) !!}
-    @error('body')
+    @error('info')
         <div class="alert alert-danger" role="alert">
             {{ $message }}
         </div>
     @enderror
     <small id="infoHelpBlock" class="form-text text-muted">
-        {{ __('Tell us something about yourself.') }}
+        {{ __('users.info_help') }}
     </small>
 </div>
 
 @if (Auth::user()->isAdmin() || Auth::user()->isModerator())
     <div class="form-group">
-        {!! Form::label('role', __('Role:')) !!}
+        {!! Form::label('role', __('users.role_label')) !!}
         @if (Auth::user()->isAdmin())
-            {!! Form::select('role', ['banned' => __('Banned user'), 'user' => __('User'), 'moderator' => __('Moderator'), 'admin' => __('Admin'), ], null, ['class' => 'form-control', 'aria-describedby' => 'roleHelpBlock', 'required' =>'']) !!}
+            {!! Form::select('role', ['banned' => __('users.roles.banned'), 'user' => __('users.roles.user'), 'moderator' => __('users.roles.moderator'), 'admin' => __('users.roles.admin'), ], null, ['class' => 'form-control', 'aria-describedby' => 'roleHelpBlock', 'required' =>'']) !!}
         @elseif (Auth::user()->isModerator())
-            {!! Form::select('role', ['banned' => __('Banned user'), 'user' => __('User'), ], null, ['class' => 'form-control', 'aria-describedby' => 'roleHelpBlock', 'required' =>'']) !!}
+            {!! Form::select('role', ['banned' => __('users.roles.banned'), 'user' => __('users.roles.user'), ], null, ['class' => 'form-control', 'aria-describedby' => 'roleHelpBlock', 'required' =>'']) !!}
         @else
             {!! Form::text('role', null, ['class' => 'form-control', 'aria-describedby' => 'titleHelpBlock', 'required' =>'', 'disabled' => '']) !!}
         @endif
@@ -47,7 +47,7 @@
             </div>
         @enderror
         <small id="iroleHelpBlock" class="form-text text-muted">
-            {{ __('User\'s role on site.') }}
+            {{ __('users.role_help') }}
         </small>
     </div>
 @else

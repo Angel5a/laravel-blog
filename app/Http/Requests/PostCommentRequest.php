@@ -8,12 +8,13 @@ class PostCommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     * Always returns true. CommentPolicy used instead.
      *
      * @return bool
      */
     public function authorize()
     {
-        return true;    // Implemented by CommentPolicy
+        return true;
     }
 
     /**

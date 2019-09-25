@@ -10,6 +10,13 @@ class ArticlePolicy
 {
     use HandlesAuthorization;
 
+    /**
+     * Determine whether the user have specified ability before the call
+     * to specified method.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
     public function before(User $user, $ability)
     {
         if ($user->isAdmin()) {

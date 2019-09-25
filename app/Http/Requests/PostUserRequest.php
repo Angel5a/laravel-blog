@@ -8,12 +8,12 @@ class PostUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     * Always returns true. UserPolicy used instead.
      *
      * @return bool
      */
     public function authorize()
     {
-        // Note: UserPolicy used instead.
         return true;
     }
 
@@ -24,9 +24,6 @@ class PostUserRequest extends FormRequest
      */
     public function rules()
     {
-        /*return [
-            'body' => 'required|min:2|max:1',   // This would always fail
-        ];*/
         $rules = [
             'name' => 'required|max:255',
         ];

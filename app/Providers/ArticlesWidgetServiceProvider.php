@@ -31,7 +31,7 @@ class ArticlesWidgetServiceProvider extends ServiceProvider
             $view->with(
                 'articles',
                 Article::withCount('comments')
-                    ->where('comments_count', '>', 5)
+                    // ->where('comments_count', '>', 5)
                     ->orderBy('comments_count', 'desc')
                     ->limit(10)
                     ->get()

@@ -1,6 +1,6 @@
 @extends('layouts.page')
 
-@section('title', 'Users')
+@section('title', __('Users'))
 
 @push('widgets')
     @include('widgets.users_latest')

@@ -31,7 +31,7 @@ class Comment extends Model
     }
 
     /**
-     * Get the user that owns this article.
+     * Get the user that owns this comment.
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -41,7 +41,7 @@ class Comment extends Model
     }
      
     /**
-     * Get the user that owns this article.
+     * Get the aticle that this comment belongs to.
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

@@ -178,6 +178,7 @@ return [
         App\Providers\ArticlesWidgetServiceProvider::class,
         App\Providers\CommentsWidgetServiceProvider::class,
         App\Providers\UsersWidgetServiceProvider::class,
+        App\Providers\LanguageServiceProvider::class,
 
     ],
 
@@ -214,6 +215,7 @@ return [
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
+        'Language' => App\Facades\Language::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,

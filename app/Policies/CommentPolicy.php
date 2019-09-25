@@ -10,6 +10,13 @@ class CommentPolicy
 {
     use HandlesAuthorization;
 
+    /**
+     * Determine whether the user have specified ability before the call
+     * to specified method.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
     public function before(User $user, $ability)
     {
         if ($user->isAdmin()) {
@@ -21,7 +28,7 @@ class CommentPolicy
     }
 
     /**
-     * Determine whether the user can view any comments.
+     * Determine whether the user can view any comment.
      *
      * @param  \App\User  $user
      * @return mixed

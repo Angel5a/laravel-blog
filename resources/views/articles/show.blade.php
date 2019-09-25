@@ -7,22 +7,22 @@
 
     <article>
         <p class="lead">
-            <i class="fa fa-calendar"></i> {{ __('Posted on') }} {{ $article->published_at->format('d/m/Y') }}
-            <i class="fa fa-user"></i> {{ __('by') }} <a href="{{ route('users.show', $article->user->id) }}">{{ $article->user->name }}</a>
+            <i class="fa fa-calendar"></i> {{ __('articles.published_at') }} {{ $article->published_at->isoFormat('LL') }}
+            <i class="fa fa-user"></i> {{ __('articles.by_user') }} <a href="{{ route('users.show', $article->user->id) }}">{{ $article->user->name }}</a>
             <small>
                 @if ($article->updated_at && $article->updated_at != $article->created_at)
-                    ({{ __('last update') }} {{ $article->updated_at->format('d/m/Y') }})
+                    ({{ __('articles.updated_at') }} {{ $article->updated_at->isoFormat('LL') }})
                 @endif
             </small>
         </p>
-        <p><i class="fa fa-tags"></i> {{ __('Tags:')  }} <a href=""><span class="badge badge-info">Post</span></a></p>
+        <p><i class="fa fa-tags"></i> {{ __('articles.tags')  }} <a href=""><span class="badge badge-info">Post</span></a></p>
 
-        @can ('view', $article)
+        @can('view', $article)
             <img src="http://placehold.it/600x200" class="img-responsive">
             <p>{{ $article->body }}</p>
         @endcan
 
-        @include('articles.buttons', ['buttons' => ['update', 'delete']])
+        @include('articles.buttons', ['buttons' => ['edit', 'delete']])
     </article>
 
     @include('comments.list', ['comments' => $article->comments])
