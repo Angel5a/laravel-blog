@@ -32,7 +32,7 @@ class Language
         if ($request->session()->has('locale')) {
             $locale = $request->session()->get('locale');
         } else {
-            $locale = config('app.locale');
+            $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE', config('app.locale')), 0, 2);
         }
         $this->setLocale($locale);
     }
