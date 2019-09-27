@@ -6,7 +6,7 @@
     <h2>{{ $article->title }}</h2>
 
     <article>
-        <p class="lead">
+        <p class="small">
             <i class="fa fa-calendar"></i> {{ __('articles.published_at') }} {{ $article->published_at->isoFormat('LL') }}
             <i class="fa fa-user"></i> {{ __('articles.by_user') }} <a href="{{ route('users.show', $article->user->id) }}">{{ $article->user->name }}</a>
             <small>
@@ -15,10 +15,10 @@
                 @endif
             </small>
         </p>
-        <p><i class="fa fa-tags"></i> {{ __('articles.tags')  }} <a href=""><span class="badge badge-info">Post</span></a></p>
+        <!--p><i class="fa fa-tags"></i> {{ __('articles.tags')  }} <a href=""><span class="badge badge-info">Post</span></a></p-->
 
         @can('view', $article)
-            <img src="http://placehold.it/600x200" class="img-responsive">
+            <!--img src="{{ asset('img/support/600x200.png')}}" class="img-responsive"-->
             <p>{{ $article->body }}</p>
         @endcan
 

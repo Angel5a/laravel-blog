@@ -10,7 +10,7 @@
     @forelse ($comments as $comment)
         <article>
             <a name="{{ 'comment_' . $comment->id }}"></a>
-            <p class="lead">
+            <p class="small">
                 <a href="{{ route('articles.show', [$comment->article_id]) }}">{{ $comment->article->title }}</a>
             </p>
             @can('view', $comment)
@@ -22,9 +22,7 @@
                 <i class="fa fa-user"></i> <a href="{{ route('users.show', $comment->user->id) }}">{{ $comment->user->name }}</a>
                 <i class="fa fa-calendar"></i> {{ $comment->created_at->diffForHumans() }}
                 @if ($comment->updated_at && $comment->updated_at != $comment->created_at)
-                    <small>
-                        ({{ __('comments.updated_at') }} {{ $comment->updated_at->diffForHumans() }})
-                    </small>
+                    ({{ __('comments.updated_at') }} {{ $comment->updated_at->diffForHumans() }})
                 @endif
             </p>
 
